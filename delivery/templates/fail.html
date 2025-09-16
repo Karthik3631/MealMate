@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Failed - Meal Mate</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>❌ Login Failed</h1>
+        <p style="color: red;">"Invalid username or password. Please try again."</p>
+
+        <a href="{% url 'signIn' %}">
+            <button class="signin">🔑 Back to Sign In</button>
+        </a>
+
+        <a href="{% url 'signUp' %}">
+            <button class="signup">📝 Create New Account</button>
+        </a>
+    </div>
+</body>
+</html>

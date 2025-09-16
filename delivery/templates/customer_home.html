@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Restaurants</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome {{ customer.username }} 👋</h1>
+        <h2>My Favorite Restaurants</h2>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Picture</th>
+                        <th>Name</th>
+                        <th>Cuisine</th>
+                        <th>Rating</th>
+                        <th>Explore</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for restaurant in restaurants %}
+                    <tr>
+                        <td>
+                            <img src="{{ restaurant.picture }}" alt="Picture of {{ restaurant.name }}" width="100">
+                        </td>
+                        <td>{{ restaurant.name }}</td>
+                        <td>{{ restaurant.cuisine }}</td>
+                        <td>{{ restaurant.rating }}/5</td>
+                        <td>
+                            <a href="{% url 'customer_menu' restaurant.id username %}">View Menu</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
