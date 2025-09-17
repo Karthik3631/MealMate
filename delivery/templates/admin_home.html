@@ -1,17 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <title>Admin HOME</title>
+    <title>Admin Home - Meal Mate</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Welcome ADMIN!</h1>
-    <form method="post" action="{% url 'add_restaurant' %}">
-        {% csrf_token %}
-        <a href="{% url 'add_restaurant' %}">Add Restaurant</a>
-    </form>
+    <div class="container">
+        <h1>👨‍💼 Welcome ADMIN!</h1>
+        <p>Manage restaurants and keep the system updated.</p>
+
+        <a href="{% url 'add_restaurant' %}">
+            <button class="signin">Add Restaurant</button>
+        </a>
+
+        <a href="{% url 'show_restaurant' %}">
+            <button class="signup">Show Restaurants</button>
+        </a>
+    </div>
 </body>
 </html>

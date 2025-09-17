@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Customer,Restaurant
 
 def index(request):
@@ -59,6 +59,10 @@ def add_restaurant(request):
             cuisine=cuisine,
             rating=rating
         )
-        return HttpResponse("Restaurant added successfully!")
-    
+        return redirect('show_restaurant')
     return render(request, "add_restaurant.html")
+
+
+def show_restaurant(request):
+    restaurants = Restaurant.objects.all()
+    return render(request, "show_restaurant.html", {"restaurants": restaurants})
