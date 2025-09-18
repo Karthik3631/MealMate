@@ -1,5 +1,6 @@
 from django.http import HttpResponse
-from django.shortcuts import render,redirect
+from django.contrib import messages
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import Customer,Restaurant
 
 def index(request):
@@ -66,3 +67,23 @@ def add_restaurant(request):
 def show_restaurant(request):
     restaurants = Restaurant.objects.all()
     return render(request, "show_restaurant.html", {"restaurants": restaurants})
+
+def update_restaurant(request, restaurant_id):
+    restaurant = get_object_or_404(Restaurant, id=restaurant_id)
+    if request.method == "POST":
+        restaurant.name = request.POST.get("name")
+        restaurant.picture = request.POST.get("picture")
+        restaurant.cuisine = request.POST.get("cuisine")
+        restaurant.rating = request.POST.get("rating")
+        restaurant.save()
+        messages.success(request, f"{restaurant.name} updated successfully! ✅")
+        return redirect("show_restaurant")
+    return render(request, "update_restaurant.html", {"restaurant": restaurant})
+
+def delete_restaurant(request, restaurant_id):
+    restaurant = get_object_or_404(Restaurant, id=restaurant_id)
+    if request.method == "POST":
+        restaurant.delete()
+        messages.success(request, "Restaurant deleted successfully 🗑")
+        return redirect("show_restaurant")
+    return redirect("show_restaurant")

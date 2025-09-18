@@ -6,20 +6,24 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Align top for scrolling */
+    align-items: flex-start;
     min-height: 100vh;
+    cursor: none; /* hide default cursor */
 }
 
 /* Container box */
 .container {
     background: white;
-    padding: 30px;
+    padding: 40px 30px;
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    width: 80%;               /* Wider for table */
-    max-width: 1000px;
-    margin-top: 40px;
+    width: 320px;       /* fixed narrow width */
+    min-height: 500px;  /* tall look */
+    margin-top: 60px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* Heading */
@@ -35,24 +39,19 @@ body {
     margin-top: 20px;
     font-size: 15px;
 }
-
-.styled-table th,
-.styled-table td {
+.styled-table th, .styled-table td {
     padding: 12px 15px;
     border: 1px solid #ddd;
     text-align: center;
 }
-
 .styled-table th {
     background-color: #2196F3;
     color: white;
     font-weight: bold;
 }
-
 .styled-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
-
 .styled-table tr:hover {
     background-color: #f1f1f1;
     transition: 0.2s;
@@ -67,23 +66,32 @@ body {
     font-size: 14px;
     font-weight: 500;
     display: inline-block;
+    cursor: pointer;
+    border: none;
     transition: all 0.3s ease;
 }
-
 .btn-edit {
-    background-color: #4CAF50;
+    background-color: #007bff;
     color: white;
 }
-
 .btn-edit:hover {
-    background-color: #45a049;
+    background-color: #0056b3;
 }
-
 .btn-delete {
-    background-color: #f44336;
+    background-color: #dc3545;
     color: white;
 }
-
 .btn-delete:hover {
-    background-color: #d32f2f;
+    background-color: #a71d2a;
+}
+
+/* Custom cursor circle */
+#custom-cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    pointer-events: none; /* so it doesn’t block clicks */
+    transform: translate(-50%, -50%);
 }
