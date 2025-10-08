@@ -1,4 +1,5 @@
 MealMatebuddy
+________________
 MealMatebuddy is a full-stack food ordering platform that enables customers to browse restaurants, place orders, and make secure payments. Vendors can manage restaurant profiles, orders, and menus through a role-based access system. The platform ensures secure user authentication and authorizes access to specific resources for designated roles.
 
 Features
