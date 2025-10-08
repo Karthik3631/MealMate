@@ -1,64 +1,41 @@
 MealMatebuddy
-________________
-MealMatebuddy is a full-stack food ordering platform that enables customers to browse restaurants, place orders, and make secure payments. Vendors can manage restaurant profiles, orders, and menus through a role-based access system. The platform ensures secure user authentication and authorizes access to specific resources for designated roles.
+_________________
+MealMate A full-stack food Ordering platform that allows customers to browse restaurants, place orders, and make payments while allowing vendors to manage their restaurant details, orders, and menus. The platform includes secure user authentication and role-based access control to ensure only authorized users can access specific resources.
 
 Features
-Customer Features
-Registration and Login: Customers can register and log in to place orders. Only active users can access the platform.
 
-Profile Management: Customers may edit personal details such as name and email.
+🛒Customer Features:
 
-Order Management: Customers can view order history, including restaurant, items, total price, and order status.
+Customer Registration and Login: Customers can register and log in to place an order. Only active users can log in. Profile Management: Customers can edit their personal details (name, email, etc.). Order Management: Customers can view their order history, including vendor, items, total price, and order status. Marketplace: Customers can browse a marketplace of approved restaurants.
 
-Marketplace: Allows browsing a curated list of approved restaurants.
+Order Placement: Customers can place orders from multiple vendors and view available menus.
 
-Order Placement: Supports placing orders from multiple vendors and viewing available menus.
+Payment: PayPal integration for order payments.💳 Access Control: Unauthorized access to vendor-specific links or pages results in an error message.
 
-Payments: PayPal integration for convenient order payments.
+🏪 Vendor Features: Vendor Registration and Login: Vendors can register and log in to manage their restaurant and orders. Restaurant Management: Vendors can add and edit restaurant details, categories, menu items, and opening hours.
 
-Access Control: Unauthorized access to vendor-specific content is blocked with error messaging.
+Order Management: Vendors can view and manage orders placed for their restaurant, including customer information, items ordered, and payment status. Access Control: Unauthorized access to customer-specific pages results in an error message. Marketplace Display: Vendors' restaurants are displayed in the marketplace only after backend approval.
 
-Vendor Features
-Registration and Login: Vendors register/login to manage their restaurants and orders.
+📦 Backend Features: Approval Process: New restaurant listings must be approved by the backend before being visible in the marketplace.
 
-Restaurant Management: Vendors add/edit details like categories, menu items, and opening hours.
+User Management: Admins can manage customer and vendor accounts, activating/deactivating users as needed. Order Verification: Vendors can verify and update the status of orders placed at their restaurants.
 
-Order Management: Provides a dashboard for managing orders, customer info, and payment status.
+📋Error Handling and Access Control: Unauthorized Access: Users trying to access pages or resources they don't have permission to should be redirected to an "Unauthorized User" page. Authentication and Authorization: Both customers and vendors must authenticate before accessing specific functionalities.
 
-Marketplace Display: Vendors are listed after backend approval.
+Database Requirements: Users Table: Store customer and vendor information (user type, email, password, etc.) and track user status (active/inactive). Restaurants Table: Store restaurant details (name, description, categories, menu items, opening hours, approval status).
 
-Access Control: Unauthorized access to customer-specific pages is blocked.
+Orders Table: Store order details (customer, vendor, items, total price, payment status, order status).
 
-Backend & Admin Features
-Approval Process: All new restaurant listings require admin approval before becoming visible.
+Menus Table: Store menu items for each restaurant, including item name, description, price, and availability.
 
-User Management: Admins activate, deactivate, or manage vendor and customer accounts.
+Categories Table: Store food categories (e.g., appetizers, main course, desserts) for each restaurant.
 
-Order Verification: Vendors can verify/update order statuses.
+Technologies and Tools:
 
-Error Handling & Security
-Authentication & Authorization: Strict login and permission checks across all roles.
-
-Unauthorized Access: Users are redirected to an "Unauthorized User" page if they access blocked resources.
-
-Error Handling: Proper feedback and redirection on errors and failed access attempts.
-
-Database Requirements
-Users Table: Stores customer and vendor data, tracks roles and active/inactive status.
-
-Restaurants Table: Holds restaurant details, menu, categories, hours, and approval state.
-
-Orders Table: Tracks all orders, items, prices, payment, and statuses.
-
-Menus Table: Stores menu items per restaurant.
-
-Categories Table: Classifies food items for each restaurant.
-
-Technologies and Tools
 Frontend: HTML, CSS, JavaScript
 
 Backend: Django (with Django REST Framework) or Flask
 
-Payment Integration: Razorpay API (for payment processing)
+Payment Integration: Razor Pay API for payment processing
 
-Error Handling: Robust error and access control management
+Error Handling: Proper error handling and redirection for unauthorized access
